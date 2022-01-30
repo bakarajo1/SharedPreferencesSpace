@@ -6,8 +6,8 @@ class SharedPreferences(val context: Context) {
 
 
     val PREFERENCES_NAME="mypref"
-    val SHARED_NAME="name"
-    val SHARED_SURNAME="surname"
+    val SHARED_USER_NAME="username"
+    val SHARED_PASSWORD="password"
     val SHARED_STATE="state"
 
 
@@ -15,21 +15,21 @@ class SharedPreferences(val context: Context) {
 
 
     fun saveName(name:String){
-        storage.edit().putString(SHARED_NAME,name).apply()
+        storage.edit().putString(SHARED_USER_NAME,name).apply()
     }
     fun saveSurname(surname:String){
-        storage.edit().putString(SHARED_SURNAME,surname).apply()
+        storage.edit().putString(SHARED_PASSWORD,surname).apply()
 
     }
     fun saveSwitchState(state:Boolean){
         storage.edit().putBoolean(SHARED_STATE,state).apply()
     }
     fun getName(): String {
-        return storage.getString(SHARED_NAME,"")!!
+        return storage.getString(SHARED_USER_NAME,"")!!
 
     }
     fun getSurname(): String {
-        return storage.getString(SHARED_SURNAME,"")!!
+        return storage.getString(SHARED_PASSWORD,"")!!
 
     }
     fun getSwitchState(): Boolean {

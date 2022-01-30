@@ -1,6 +1,5 @@
 package com.example.sharedpreferencesspace
 
-import android.content.SharedPreferences
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,16 +7,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.findNavController
 import com.example.sharedpreferencesspace.AppContext.Companion.prefs
-import com.example.sharedpreferencesspace.databinding.UserFragmentBinding
+import com.example.sharedpreferencesspace.databinding.RegisterFragmentBinding
 
-class UserFragment : Fragment() {
+class RegisterFragment : Fragment() {
 
     companion object {
-        fun newInstance() = UserFragment()
+        fun newInstance() = RegisterFragment()
     }
-    private var _binding: UserFragmentBinding?=null
+    private var _binding: RegisterFragmentBinding?=null
     private val binding
         get() = _binding!!
 
@@ -27,7 +26,7 @@ class UserFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding= UserFragmentBinding.inflate(inflater,container,false)
+        _binding= RegisterFragmentBinding.inflate(inflater,container,false)
         return binding.root
     }
 
@@ -50,6 +49,7 @@ class UserFragment : Fragment() {
             prefs.saveSurname(binding.editTextTextPersonSurname.text.toString())
             binding.nameTextView.text= prefs.getName()
             binding.surnameTextView.text= prefs.getSurname()
+                findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
         }else{
             //toast
                 Toast.makeText(requireContext(), "Fill Fields", Toast.LENGTH_SHORT).show()
@@ -60,6 +60,11 @@ class UserFragment : Fragment() {
             binding.surnameTextView.text= prefs.getSurname()
         }
 
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding=null
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
