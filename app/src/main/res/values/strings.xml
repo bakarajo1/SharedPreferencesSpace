@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">SharedPreferencesSpace</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="log_out">Log Out</string>
+    <string name="sum">Sum</string>
+    <string name="number">number</string>
+    <string name="minus">-</string>
+    <string name="plus">+</string>
+    <string name="log_in">Log In</string>
+    <string name="username">UserName</string>
+    <string name="password">Password</string>
+    <string name="have_account">Have Account?</string>
+    <string name="logged_in">Logged In</string>
+    <string name="delete_prefs">Delete Prefs</string>
+    <string name="register">Register</string>
+    <string name="splaaaash">SPLAAAASH</string>
+    <string name="name">Name</string>
+    <string name="surname">Surname</string>
+    <string name="add_prefs">Add prefs</string>
 </resources>
