@@ -9,6 +9,7 @@ class SharedPreferences(val context: Context) {
     val SHARED_USER_NAME="username"
     val SHARED_PASSWORD="password"
     val SHARED_STATE="state"
+    val SHARED_NUMBER="numberSum"
 
 
     val storage=context.getSharedPreferences(PREFERENCES_NAME,0)
@@ -23,6 +24,15 @@ class SharedPreferences(val context: Context) {
     }
     fun saveSwitchState(state:Boolean){
         storage.edit().putBoolean(SHARED_STATE,state).apply()
+    }
+
+    fun saveCalculatorAnswer(num:Int){
+        storage.edit().putInt(SHARED_NUMBER,num).apply()
+
+    }
+    fun getCalculatorAnswer():Int{
+        return storage.getInt(SHARED_NUMBER,0)
+
     }
     fun getName(): String {
         return storage.getString(SHARED_USER_NAME,"")!!
