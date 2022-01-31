@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.example.sharedpreferencesspace.AppContext.Companion.prefs
 import com.example.sharedpreferencesspace.databinding.FragmentCalculatorBinding
 import com.example.sharedpreferencesspace.databinding.FragmentLoginBinding
@@ -75,7 +76,12 @@ class CalculatorFragment : Fragment() {
         super.onDestroyView()
         _binding=null
     }
-
+    private fun setLogOutListener() {
+        binding.logOutbutton.setOnClickListener {
+            prefs.deleteAll()
+            findNavController().navigate(R.id.action_calculatorFragment_to_registerFragment)
+        }
+    }
 
 
 }

@@ -60,6 +60,11 @@ class RegisterFragment : Fragment() {
             binding.surnameTextView.text= prefs.getSurname()
         }
 
+
+        binding.buttonLogIn.setOnClickListener {
+            findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+        }
+
     }
 
     override fun onDestroyView() {

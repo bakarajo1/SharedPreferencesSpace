@@ -18,7 +18,11 @@
         android:id="@+id/calculatorFragment"
         android:name="com.example.sharedpreferencesspace.CalculatorFragment"
         android:label="fragment_calculator"
-        tools:layout="@layout/fragment_calculator" />
+        tools:layout="@layout/fragment_calculator" >
+        <action
+            android:id="@+id/action_calculatorFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.example.sharedpreferencesspace.RegisterFragment"
